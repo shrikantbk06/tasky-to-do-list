@@ -2,10 +2,66 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f5f5;
+  background-color: #fff8e7; /* soft pastel yellow */
 }
 
 .app-container {
   text-align: center;
   padding: 20px;
+}
+
+h1 {
+  color: #d17b00; /* warm orange */
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #d4b483;
+  border-radius: 6px;
+  margin-right: 8px;
+  background-color: #fff9ef;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #f5b700; /* bright yellow-orange */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #d99a00;
+}
+
+button:disabled {
+  background-color: rgb(234, 200, 99);
+  cursor: not-allowed;
+}
+
+.task-list {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  background-color: white;
+  border: 1px solid #e5d3b3;
+  padding: 10px;
+  margin: 6px auto;
+  width: 250px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
 }
