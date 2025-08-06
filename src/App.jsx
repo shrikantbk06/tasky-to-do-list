@@ -18,7 +18,7 @@ function App() {
       completed: false 
     };
 
-    setTasks([...tasks,newTask]);
+    setTasks([...tasks,newTask]);  // adds the new task to the end of the array
     setInput('');
 
   }
