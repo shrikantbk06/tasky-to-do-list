@@ -7,6 +7,9 @@ function App() {
     const storedTasks = localStorage.getItem('tasky-tasks');
     return storedTasks ? JSON.parse(storedTasks) : [];
   });
+  const [editingTaskId, setEditingTaskId] = useState(null);
+  const [editingText, setEditingText] = useState('');
+
 
   useEffect(() => {
     const storedTasks = localStorage.getItem('tasky-tasks');
@@ -52,6 +55,26 @@ function App() {
     setTasks(prevTasks => prevTasks.filter(task => task.id !== id));
   };
 
+  const startEditing = (id, currentText) => {
+    setEditingTaskId(id);
+    setEditingText(currentText);
+  };
+
+  const saveEditing = (id) => {
+    const trimmedText = editingText.trim();
+    if (!trimmedText) return;
+
+    setTasks(prevTasks =>
+      prevTasks.map(task =>
+        task.id === id ? { ...task, text: trimmedText } : task
+      )
+    );
+
+    setEditingTaskId(null);
+    setEditingText('');
+  };
+
+
   return (
     <div className="app-container">
       <h1>Tasky</h1>
@@ -76,8 +99,35 @@ function App() {
               checked={task.completed}
               onChange={() => toggleTask(task.id)}
             />
-            <span>{task.text}</span>
-            <button onClick={() => deleteTask(task.id)}>Delete</button>
+            {editingTaskId === task.id ? (
+              task.completed ? (
+              <>
+              <span>{task.text}</span>
+              <button onClick={() => deleteTask(task.id)}>Delete</button>
+              </>
+            ) : (
+                <>
+                <input
+                  type="text"
+                  value={editingText}
+                  onChange={(e) => setEditingText(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') saveEditing(task.id);
+                  }}
+                  autoFocus
+                />
+                <button onClick={() => saveEditing(task.id)}>Save</button>
+              </>
+              )
+            ) : (
+              <>
+                <span onDoubleClick={() => 
+                  !task.completed && startEditing(task.id, task.text)}>
+                  {task.text}
+                </span>
+                <button onClick={() => deleteTask(task.id)}>Delete</button>
+              </>
+            )}
           </li>
         ))}
       </ul>
