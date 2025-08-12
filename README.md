@@ -2,7 +2,7 @@
 
 **Tasky** is a simple, clean, and localStorage-powered to-do list web app built using **React + Vite**. You can add, complete, and delete tasks — and they’ll stay even after refreshing the page.
 
-> 🎯 Live Demo: [your-vercel-url-here](https://tasky.vercel.app)
+> 🎯 Live Demo: [Tasky](tasky-to-do-list.vercel.app)
 
 ---
 
