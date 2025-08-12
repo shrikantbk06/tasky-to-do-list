@@ -21,8 +21,6 @@
 
 ![Tasky Screenshot](/public/preview.png)
 
-> Add a screenshot or screen recording and save it as `preview.png` in your repo
-
 ---
 
 ## 🚀 Tech Stack
