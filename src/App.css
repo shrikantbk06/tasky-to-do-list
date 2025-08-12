@@ -59,9 +59,22 @@ button:disabled {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 }
 
 .task-item.completed {
   text-decoration: line-through;
   opacity: 0.6;
+}
+
+.task-item input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+.task-item button {
+  background: none;
+  border: none;
+  color: #d17b00;
+  font-size: 1.1rem;
+  cursor: pointer;
 }
